@@ -21,12 +21,12 @@ namespace WishList.Controllers
 
         public IActionResult Index()
         {
-            var user = _userManager.GetUserAsync(HttpContext.User);
+            var user = _userManager.GetUserAsync(HttpContext.User).Result;
             var model = _context.Items
-                .Where(u => u.Id == user.Id)
+                .Where(u => u.User.Id == user.Id)
                 .ToList();
 
-            return View("Index", "Item");
+            return View("Index", model);
         }
 
         [HttpGet]
