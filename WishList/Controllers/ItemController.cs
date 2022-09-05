@@ -26,7 +26,7 @@ namespace WishList.Controllers
                 .Where(u => u.Id == user.Id)
                 .ToList();
 
-            return View("Index", model);
+            return View("Index", "model");
         }
 
         [HttpGet]
